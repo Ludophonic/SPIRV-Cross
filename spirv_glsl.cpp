@@ -1148,6 +1148,13 @@ bool CompilerGLSL::can_use_io_location(StorageClass storage)
 			return false;
 	}
 
+	// Location specifier on uniforms not supported on older versions of GLSL without 420pack extension
+	if( storage == StorageClassUniformConstant || storage == StorageClassUniform )
+	{
+		if ( !options.es && options.version < 420 && !options.enable_420pack_extension )
+			return false;
+	}
+
 	return true;
 }
 

@@ -17,4 +17,5 @@
 /external
 
 !CMakeLists.txt
-msvc/.vs/SPIRV-Cross/v15/Browse.VC.db
+msvc/.vs
+msvc/*.user
